@@ -21,9 +21,9 @@ router.get("/home", authenticate, checkRole, (req, res) => {
     res.render('Home/Home');
 })
 //login
-router.get("/admin/login", (req, res) => {
-    res.render('Login/Login');
-});
+// router.get("/admin/login", (req, res) => {
+//     res.render('Login/Login');
+// });
 
 router.post("/admin/login", async (req, res) => {
     try {
