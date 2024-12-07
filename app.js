@@ -36,6 +36,10 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'] // Cho phép header Authorization
 }));
 
+app.get("/", (req, res) => {
+  res.redirect("/rentify/login");  // Chuyển hướng tới /rentify/login
+});
+
 // connect
 app.use("/", indexRouter);
 app.use("/api", api);
@@ -68,6 +72,12 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error.hbs');
+});
+
+// Lắng nghe server
+const port = process.env.PORT || 3001;  // Dùng port do Render cấp hoặc port mặc định là 3000
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
 
 module.exports = app;
