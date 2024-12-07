@@ -36,13 +36,13 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'] // Cho phép header Authorization
 }));
 
-app.get("/", (req, res) => {
-  res.redirect("/rentify/login");  // Chuyển hướng tới /rentify/login
-});
+// app.get("/", (req, res) => {
+//   res.redirect("/rentify/login");  // Chuyển hướng tới /rentify/login
+// });
 
 // connect
-app.use("/", indexRouter);
 app.use("/api", api);
+app.use("/", indexRouter);
 app.use("/landlord", indexLandlord)
 database.connect();
 
