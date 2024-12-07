@@ -1,7 +1,6 @@
 {
   "name": "rentify-server",
   "version": "0.0.0",
-  "main": "../routers/api.js",
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
