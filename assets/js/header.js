@@ -1,37 +1,38 @@
 function fetchNotifications() {
-    const token = localStorage.getItem('token');
+    window.location.href = '/api/rentify/login';
+    // const token = localStorage.getItem('token');
 
-    if (!token) {
-        alert('Vui lòng đăng nhập để xem thông báo.');
-        window.location.href = '/api/admin/login'; //
-        return;
-    }
+    // if (!token) {
+    //     alert('Vui lòng đăng nhập để xem thông báo.');
+    //     window.location.href = '/api/admin/login'; //
+    //     return;
+    // }
 
-    fetch('/api/notifications', {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
-        }
-    })
-        .then(response => {
-            if (!response.ok) {
-                response.json().then(error => console.error('Lỗi:', error.message));
-                throw new Error('Failed to fetch notifications');
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data && Array.isArray(data.notifications)) {
-                updateNotificationCount(data.notifications);
-                renderNotificationList(data.notifications);
-            } else {
-                console.error('Dữ liệu trả về không hợp lệ:', data);
-            }
-        })
-        .catch(error => {
-            console.error('Lỗi khi lấy thông báo:', error);
-        });
+    // fetch('/api/notifications', {
+    //     method: 'GET',
+    //     headers: {
+    //         'Authorization': `Bearer ${token}`,
+    //         'Content-Type': 'application/json'
+    //     }
+    // })
+    //     .then(response => {
+    //         if (!response.ok) {
+    //             response.json().then(error => console.error('Lỗi:', error.message));
+    //             throw new Error('Failed to fetch notifications');
+    //         }
+    //         return response.json();
+    //     })
+    //     .then(data => {
+    //         if (data && Array.isArray(data.notifications)) {
+    //             updateNotificationCount(data.notifications);
+    //             renderNotificationList(data.notifications);
+    //         } else {
+    //             console.error('Dữ liệu trả về không hợp lệ:', data);
+    //         }
+    //     })
+    //     .catch(error => {
+    //         console.error('Lỗi khi lấy thông báo:', error);
+    //     });
 }
 
 // Hàm để cập nhật số lượng thông báo chưa đọc

@@ -5,8 +5,6 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const cors = require('cors');
 
-
-
 //
 var indexRouter = require("./routes/index");
 var indexLandlord = require("./routes/LandlordIndex")
@@ -35,10 +33,6 @@ app.use(cors({
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type', 'Authorization'] // Cho phép header Authorization
 }));
-
-// app.get("/", (req, res) => {
-//   res.redirect("/rentify/login");  // Chuyển hướng tới /rentify/login
-// });
 
 // connect
 app.use("/api", api);
@@ -73,11 +67,5 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error.hbs');
 });
-
-// Lắng nghe server
-// const port = process.env.PORT || 3001;  // Dùng port do Render cấp hoặc port mặc định là 3000
-// app.listen(port, () => {
-//   console.log(`Server is running on port ${port}`);
-// });
 
 module.exports = app;
