@@ -75,9 +75,9 @@ app.use(function (err, req, res, next) {
 });
 
 // Lắng nghe server
-const port = process.env.PORT || 3001;  // Dùng port do Render cấp hoặc port mặc định là 3000
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+// const port = process.env.PORT || 3001;  // Dùng port do Render cấp hoặc port mặc định là 3000
+// app.listen(port, () => {
+//   console.log(`Server is running on port ${port}`);
+// });
 
 module.exports = app;
